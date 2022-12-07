@@ -10,6 +10,7 @@ function App() {
       <Counter initialValue={0}/>
       <CounterBy initialValue={0}/>
       <CounterEffect />
+      <CounterEffect />
     </>
   );
 }
