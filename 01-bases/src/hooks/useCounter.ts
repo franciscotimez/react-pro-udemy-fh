@@ -1,33 +1,34 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { gsap } from "gsap";
 
-const MAXIMUM_COUNT = 10;
+export const useCounter = ({ maxCount = 10 }) => {
+  const [counter, setCounter] = useState(0);
 
-export const useCounter = () => {
-  const [counter, setCounter] = useState(3);
-
-  const counterElement = useRef<HTMLHeadingElement>(null);
+  const elementToAnimate = useRef<any>(null);
+  const timeLine = useRef(gsap.timeline());
 
   const handleClick = () => {
-    setCounter(counter => Math.min(counter + 1, MAXIMUM_COUNT));
+    setCounter(counter => Math.min(counter + 1, maxCount));
   };
 
   useLayoutEffect(() => {
-    if (counter >= MAXIMUM_COUNT) {
-      console.log("%cSe llego al valor maximo!", "color:red;");
+    // Animacion
+    if (!elementToAnimate.current) return;
 
-      // Animacion
-      const timeLine = gsap.timeline();
+    timeLine.current
+      .to(elementToAnimate.current, { y: -10, duration: 0.1, ease: 'ease.out' })
+      .to(elementToAnimate.current, { y: 0, duration: 1, ease: 'bounce.out' })
+      .pause();
+  }, []);
 
-      timeLine.to(counterElement.current, { y: -10, duration: 0.1, ease: 'ease.out' })
-        .to(counterElement.current, { y: 0, duration: 1, ease: 'bounce.out' });
-    }
-
+  useEffect(() => {
+    timeLine.current.play(0);
   }, [counter]);
+
 
   return {
     counter,
     handleClick,
-    counterElement,
+    elementToAnimate,
   };
 };

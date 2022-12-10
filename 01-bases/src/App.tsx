@@ -8,10 +8,10 @@ function App() {
     <>
       <h1>React</h1>
       <hr/>
-      {/* <Counter initialValue={0}/>
-      <CounterBy initialValue={0}/>
-      <CounterEffect /> */}
       <CounterHook />
+      <CounterEffect />
+      <CounterBy initialValue={0}/>
+      <Counter initialValue={0}/>
     </>
   );
 }
