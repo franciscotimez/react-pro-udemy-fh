@@ -13,7 +13,6 @@ export const useProduct = ({ product, onChange, value = 0, initialValues }: useP
   value = initialValues?.count || value;
   const [counter, setCounter] = useState<number>(value);
 
-  console.log(initialValues?.count);
   const isControlled = useRef(!!onChange);
 
   const increaseBy = (value: number) => {
@@ -22,7 +21,10 @@ export const useProduct = ({ product, onChange, value = 0, initialValues }: useP
       return onChange!({ count: value, product });
     }
 
-    const newValue = Math.max(counter + value, 0);
+    let newValue = Math.max(counter + value, 0);
+    if (initialValues?.maxCount) {
+      newValue = Math.min(newValue, initialValues.maxCount);
+    }
     setCounter(newValue);
 
     onChange && onChange({ product, count: newValue });
