@@ -26,17 +26,22 @@ export const ShoppingPage = () => {
   const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart; }>({});
 
   const onProductCountChange = ({ count, product }: { count: number; product: Product; }) => {
-    console.log("onProductCountChange");
+    console.log({ count });
     setShoppingCart(prev => {
-      if (count === 0) {
-        const { [product.id]: toDelete, ...rest } = prev;
-        // delete prev[product.id];
-        return rest;
+
+      const productInCart: ProductInCart = prev[product.id] || { ...product, count: 0 };
+
+      if (Math.max(productInCart.count + count, 0) > 0) {
+        productInCart.count += count;
+        return {
+          ...prev,
+          [product.id]: productInCart
+        };
       }
-      return {
-        ...prev,
-        [product.id]: { ...product, count }
-      };
+
+      // Borrar producto
+      const { [product.id]: toDelete, ...rest } = prev;
+      return rest;
     });
   };
 
