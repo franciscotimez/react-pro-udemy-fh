@@ -1,6 +1,6 @@
 import React from 'react';
 import NoLazyPage from '../01-lazyload/pages/NoLazyPage';
-import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
+import { ShoppingPage } from '../02-state-initializer/pages/ShoppingPage';
 
 type JSXComponent = () => JSX.Element;
 interface Route {
