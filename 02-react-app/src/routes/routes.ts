@@ -1,11 +1,13 @@
 import React from 'react';
-import { FormikAbstraction } from '../03-forms/pages/FormikAbstraction';
-import { FormikBasicPage } from '../03-forms/pages/FormikBasicPage';
-import { FormikComponents } from '../03-forms/pages/FormikComponents';
-import { FormikYupPage } from '../03-forms/pages/FormikYupPage';
+import {
+  FormikAbstraction,
+  FormikBasicPage,
+  FormikComponents,
+  FormikYupPage,
+  RegisterPage
+} from '../03-forms/pages';
 // import NoLazyPage from '../01-lazyload/pages/NoLazyPage';
 // import { ShoppingPage } from '../02-state-initializer/pages/ShoppingPage';
-import { RegisterPage } from '../03-forms/pages/RegisterPage';
 
 type JSXComponent = () => JSX.Element;
 interface Route {
