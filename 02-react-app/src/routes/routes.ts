@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormikBasicPage } from '../03-forms/pages/FormikBasicPage';
+import { FormikYupPage } from '../03-forms/pages/FormikYupPage';
 // import NoLazyPage from '../01-lazyload/pages/NoLazyPage';
 // import { ShoppingPage } from '../02-state-initializer/pages/ShoppingPage';
 import { RegisterPage } from '../03-forms/pages/RegisterPage';
@@ -26,5 +27,11 @@ export const routes: Route[] = [
     path: 'register-formik-basic',
     Component: FormikBasicPage,
     name: "Formik Basic"
+  },
+  {
+    to: '/register-formik-yup',
+    path: 'register-formik-yup',
+    Component: FormikYupPage,
+    name: "Formik Yup"
   },
 ];
