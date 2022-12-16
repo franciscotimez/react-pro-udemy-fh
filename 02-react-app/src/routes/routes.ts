@@ -1,9 +1,11 @@
 import React from 'react';
 import {
+  DynamicFormPage,
   FormikAbstraction,
   FormikBasicPage,
   FormikComponents,
   FormikYupPage,
+  RegisterFormikPage,
   RegisterPage
 } from '../03-forms/pages';
 // import NoLazyPage from '../01-lazyload/pages/NoLazyPage';
@@ -25,6 +27,12 @@ export const routes: Route[] = [
     path: 'register',
     Component: RegisterPage,
     name: "Register"
+  },
+  {
+    to: '/registerFormik',
+    path: 'registerFormik',
+    Component: RegisterFormikPage,
+    name: "Register Formik"
   },
   {
     to: '/register-formik-basic',
@@ -49,5 +57,11 @@ export const routes: Route[] = [
     path: 'register-formik-abstraction',
     Component: FormikAbstraction,
     name: "Formik abstraction"
+  },
+  {
+    to: '/dynamic-form',
+    path: 'dynamic-form',
+    Component: DynamicFormPage,
+    name: "Dynamic Form"
   },
 ];
