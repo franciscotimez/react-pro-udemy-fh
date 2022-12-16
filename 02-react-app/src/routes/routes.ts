@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormikAbstraction } from '../03-forms/pages/FormikAbstraction';
 import { FormikBasicPage } from '../03-forms/pages/FormikBasicPage';
 import { FormikComponents } from '../03-forms/pages/FormikComponents';
 import { FormikYupPage } from '../03-forms/pages/FormikYupPage';
@@ -40,5 +41,11 @@ export const routes: Route[] = [
     path: 'register-formik-components',
     Component: FormikComponents,
     name: "Formik components"
+  },
+  {
+    to: '/register-formik-abstraction',
+    path: 'register-formik-abstraction',
+    Component: FormikAbstraction,
+    name: "Formik abstraction"
   },
 ];
