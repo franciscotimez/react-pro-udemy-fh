@@ -84,6 +84,36 @@ self.addEventListener('install', async (event) => {
 });
 
 
+const apiOfflineFallbacks = [
+  "http://localhost:4000/api/auth/renew",
+  "http://localhost:4000/api/events"
+];
+
 self.addEventListener('fetch', (event) => {
-  console.log(event.request.url);
+  if (apiOfflineFallbacks.includes(event.request.url)) {
+
+    console.log(event.request.url);
+
+    const resp = fetch(event.request)
+      .then((response) => {
+
+        if (!response) return caches.match(event.request);
+
+        // Guardado en Cache
+        caches.open('cache-dynamic')
+          .then(cache => {
+            cache.put(event.request, response);
+          });
+
+        return response.clone();
+      })
+      .catch((err) => {
+        console.log('Off line!');
+        return caches.match(event.request);
+      });
+
+    event.respondWith(resp);
+  }
+
+
 });
