@@ -70,3 +70,20 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+self.addEventListener('install', async (event) => {
+  console.log("instalando...");
+
+  const cache = await caches.open('cache-1');
+
+  await cache.addAll([
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css",
+    "/favicon.ico"
+  ]);
+});
+
+
+self.addEventListener('fetch', (event) => {
+  console.log(event.request.url);
+});
