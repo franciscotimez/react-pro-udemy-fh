@@ -10,7 +10,6 @@ import { ProductCard, ProductImage, ProductTitle, ProductButtons } from 'fgt-pro
 
 ```jsx
 <ProductCard
-  key={product.id}
   product={product}
   initialValues={{
     count: 4,

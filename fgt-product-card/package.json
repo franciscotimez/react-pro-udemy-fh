@@ -7,6 +7,11 @@
     "dist",
     "src"
   ],
+  "repository": {
+    "url": "https://github.com/",
+    "type": "git"
+  },
+  "homepage": "https://github.com/franciscotimez",
   "engines": {
     "node": ">=10"
   },
@@ -60,5 +65,9 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4"
-  }
+  },
+  "keywords": [
+    "product",
+    "card"
+  ]
 }
