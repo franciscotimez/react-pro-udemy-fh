@@ -1,13 +1,14 @@
 import React from 'react';
-import {
-  DynamicFormPage,
-  FormikAbstraction,
-  FormikBasicPage,
-  FormikComponents,
-  FormikYupPage,
-  RegisterFormikPage,
-  RegisterPage
-} from '../03-forms/pages';
+import { ShoppingPage } from '../02-state-initializer/pages/ShoppingPage';
+// import {
+//   DynamicFormPage,
+//   FormikAbstraction,
+//   FormikBasicPage,
+//   FormikComponents,
+//   FormikYupPage,
+//   RegisterFormikPage,
+//   RegisterPage
+// } from '../03-forms/pages';
 // import NoLazyPage from '../01-lazyload/pages/NoLazyPage';
 // import { ShoppingPage } from '../02-state-initializer/pages/ShoppingPage';
 
@@ -23,45 +24,51 @@ interface Route {
 
 export const routes: Route[] = [
   {
-    to: '/register',
-    path: 'register',
-    Component: RegisterPage,
-    name: "Register"
+    to: '/home',
+    path: 'home',
+    Component: ShoppingPage,
+    name: "Home"
   },
-  {
-    to: '/registerFormik',
-    path: 'registerFormik',
-    Component: RegisterFormikPage,
-    name: "Register Formik"
-  },
-  {
-    to: '/register-formik-basic',
-    path: 'register-formik-basic',
-    Component: FormikBasicPage,
-    name: "Formik Basic"
-  },
-  {
-    to: '/register-formik-yup',
-    path: 'register-formik-yup',
-    Component: FormikYupPage,
-    name: "Formik Yup"
-  },
-  {
-    to: '/register-formik-components',
-    path: 'register-formik-components',
-    Component: FormikComponents,
-    name: "Formik components"
-  },
-  {
-    to: '/register-formik-abstraction',
-    path: 'register-formik-abstraction',
-    Component: FormikAbstraction,
-    name: "Formik abstraction"
-  },
-  {
-    to: '/dynamic-form',
-    path: 'dynamic-form',
-    Component: DynamicFormPage,
-    name: "Dynamic Form"
-  },
+  // {
+  //   to: '/register',
+  //   path: 'register',
+  //   Component: RegisterPage,
+  //   name: "Register"
+  // },
+  // {
+  //   to: '/registerFormik',
+  //   path: 'registerFormik',
+  //   Component: RegisterFormikPage,
+  //   name: "Register Formik"
+  // },
+  // {
+  //   to: '/register-formik-basic',
+  //   path: 'register-formik-basic',
+  //   Component: FormikBasicPage,
+  //   name: "Formik Basic"
+  // },
+  // {
+  //   to: '/register-formik-yup',
+  //   path: 'register-formik-yup',
+  //   Component: FormikYupPage,
+  //   name: "Formik Yup"
+  // },
+  // {
+  //   to: '/register-formik-components',
+  //   path: 'register-formik-components',
+  //   Component: FormikComponents,
+  //   name: "Formik components"
+  // },
+  // {
+  //   to: '/register-formik-abstraction',
+  //   path: 'register-formik-abstraction',
+  //   Component: FormikAbstraction,
+  //   name: "Formik abstraction"
+  // },
+  // {
+  //   to: '/dynamic-form',
+  //   path: 'dynamic-form',
+  //   Component: DynamicFormPage,
+  //   name: "Dynamic Form"
+  // },
 ];
