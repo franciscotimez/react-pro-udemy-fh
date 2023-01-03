@@ -8,7 +8,7 @@ export interface PlacesContextProps {
   places: Feature[];
 
   // Methods
-  searchPlacesByTerm: (query: string) => Promise<Feature[] | undefined>
+  searchPlacesByTerm: (query: string) => Promise<Feature[]>
 }
 
 export const PlacesContext = createContext<PlacesContextProps>({} as PlacesContextProps);

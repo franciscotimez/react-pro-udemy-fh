@@ -26,6 +26,7 @@ export const MapView = () => {
   if (isLoading) {
     return (<Loading />);
   }
+
   return (
     <div
       ref={mapDiv}
@@ -37,7 +38,7 @@ export const MapView = () => {
         width: '100vw'
       }}
     >
-      {userLocation?.join(',')}
+      {/* {userLocation?.join(',')} */}
     </div>
   );
 };

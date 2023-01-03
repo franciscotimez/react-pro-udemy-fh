@@ -33,8 +33,12 @@ export const PlacesProvider = ({ children }: Props) => {
       .then(lnglat => dispatch({ type: "setUserLocation", payload: lnglat }));
   }, []);
 
-  const searchPlacesByTerm = async (query: string): Promise<Feature[] | undefined> => {
-    if (query.length === 0) return []; // todo: limpiar state
+  const searchPlacesByTerm = async (query: string): Promise<Feature[]> => {
+    if (query.length === 0) {
+      dispatch({ type: "setPlaces", payload: [] });
+      return [];
+    }
+
     if (!state.userLocation) throw new Error("No hay ubicacion de usuario");
 
     dispatch({ type: 'setLoadingPlaces' });
@@ -46,6 +50,7 @@ export const PlacesProvider = ({ children }: Props) => {
     });
 
     dispatch({ type: "setPlaces", payload: resp.data.features });
+    return resp.data.features;
   };
 
   return (
