@@ -7,8 +7,8 @@ export const SearchResults = () => {
 
   const [activeId, setActiveId] = useState('');
 
-  const { isLoadingPlaces, places } = useContext(PlacesContext);
-  const { map } = useContext(MapContext);
+  const { isLoadingPlaces, places, userLocation } = useContext(PlacesContext);
+  const { map, getRouteBetweenPoints } = useContext(MapContext);
 
 
   const onPlaceClicked = (place: Feature) => {
@@ -18,6 +18,13 @@ export const SearchResults = () => {
       zoom: 14,
       center: [lng, lat]
     });
+  };
+
+  const getRoute = (place: Feature) => {
+    if (!userLocation) return;
+
+    const [lng, lat] = place.center;
+    getRouteBetweenPoints(userLocation, [lng, lat]);
   };
 
   if (isLoadingPlaces) return <LoadingPlaces />;
@@ -44,7 +51,12 @@ export const SearchResults = () => {
               {place.place_name_es}
             </p>
 
-            <button className={`btn btn-sm ${activeId === place.id ? 'btn-outline-light' : 'btn-outline-primary'}`} >Direcciones</button>
+            <button
+              className={`btn btn-sm ${activeId === place.id ? 'btn-outline-light' : 'btn-outline-primary'}`}
+              onClick={() => getRoute(place)}
+            >
+              Direcciones
+            </button>
           </li>
         ))
       }
