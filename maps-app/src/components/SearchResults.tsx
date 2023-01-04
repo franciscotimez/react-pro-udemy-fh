@@ -43,7 +43,7 @@ export const SearchResults = () => {
           >
             <h6>{place.text_es}</h6>
             <p
-              className="text-muted"
+              // className="text-muted"
               style={{
                 fontSize: '12px'
               }}
